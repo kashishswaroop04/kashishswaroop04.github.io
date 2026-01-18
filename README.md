@@ -1,3 +1,2 @@
 # kashishswaroop04.github.io
-
-I am editing the desktop file as a test
+This is Kashish Swaroop, I have setup this repository for UNC Charlotte.
