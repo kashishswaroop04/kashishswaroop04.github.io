@@ -1,8 +1,58 @@
+/* Course site default styles */
+/* Clean, simple, and different from personal site */
+
 body {
-  font-family: Arial, sans-serif;
+    background-color: #fffaf2;
+    color: #2b2b2b;
+    font-family: Verdana, Geneva, sans-serif;
+    margin: 0;
 }
 
-header, footer {
-  background-color: #f2f2f2;
-  padding: 10px;
+/* keep course content readable on large screens */
+main {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 24px;
+}
+
+/* header stands out with a different color scheme */
+header {
+    background-color: #7a3db8;
+    color: white;
+    padding: 18px 24px;
+}
+
+/* headings look different from personal site */
+h1 {
+    font-family: "Trebuchet MS", Arial, sans-serif;
+    margin-bottom: 6px;
+}
+
+h2 {
+    margin-top: 0;
+    color: #4b2c73;
+}
+
+/* list spacing for readability */
+ul, ol {
+    margin-left: 24px;
+    margin-bottom: 16px;
+}
+
+/* paragraphs spaced evenly */
+p {
+    line-height: 1.7;
+    margin-bottom: 14px;
+}
+
+/* footer clearly separated */
+footer {
+    background-color: #ece3f7;
+    padding: 16px;
+    margin-top: 40px;
+}
+
+/* links stay default color but spaced out */
+a {
+    margin-right: 10px;
 }
