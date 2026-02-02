@@ -1,0 +1,51 @@
+/* Personal site default styles */
+/* Simple, readable, and clean */
+
+body {
+    background-color: #f4f7fb;
+    color: #1f2933;
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+}
+
+/* keep content from stretching too wide */
+main {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* header styling */
+header {
+    background-color: #2d6cdf;
+    color: white;
+    padding: 20px;
+}
+
+/* headings use a different font */
+h1 {
+    font-family: "Georgia", serif;
+    margin-bottom: 5px;
+}
+
+h2 {
+    margin-top: 0;
+}
+
+/* paragraph spacing */
+p {
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+/* footer styling */
+footer {
+    background-color: #e5e9f0;
+    padding: 15px;
+    margin-top: 40px;
+}
+
+/* links stay default color, just spaced */
+a {
+    margin-right: 8px;
+}
