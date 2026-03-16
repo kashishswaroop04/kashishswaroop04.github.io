@@ -1,650 +1,396 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Hobby Site | Hiking</title>
-    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
-    <style>
-        :root {
-            --bg: #102a1f;
-            --panel: #173a2c;
-            --panel-light: #214d3b;
-            --accent: #d8b24c;
-            --accent-dark: #a8852d;
-            --text: #f4f0e6;
-            --muted: #d4dbc9;
-            --shadow: rgba(0, 0, 0, 0.25);
-        }
+<meta charset="UTF-8">
+<title>Hiking Hobby</title>
 
-        * {
-            box-sizing: border-box;
-        }
+<style>
 
-        html {
-            scroll-behavior: smooth;
-        }
+body{
+font-family: Arial, Helvetica, sans-serif;
+background:#1f2d2a;
+color:#f0f0f0;
+margin:0;
+}
 
-        body {
-            margin: 0;
-            font-family: Verdana, Geneva, Tahoma, sans-serif;
-            background: linear-gradient(180deg, #0d2119, #183d2d);
-            color: var(--text);
-            line-height: 1.6;
-        }
+header{
+background:#2c4a44;
+padding:20px;
+text-align:center;
+}
 
-        a {
-            color: var(--accent);
-            text-decoration: none;
-        }
+h1{
+margin:0;
+}
 
-        a:hover,
-        a:focus {
-            color: #ffe199;
-            text-decoration: underline;
-        }
+nav{
+margin-top:10px;
+}
 
-        header,
-        main,
-        footer {
-            width: min(1100px, 92%);
-            margin: 0 auto;
-        }
+nav a{
+color:#ffd369;
+text-decoration:none;
+font-weight:bold;
+margin:0 10px;
+}
 
-        header {
-            padding: 2rem 0 1rem;
-            text-align: center;
-        }
+nav a:hover{
+color:white;
+}
 
-        h1 {
-            margin: 0 0 0.5rem;
-            font-size: 2.7rem;
-            letter-spacing: 0.05rem;
-            color: #fff4cf;
-        }
+main{
+padding:30px;
+}
 
-        .tagline {
-            max-width: 700px;
-            margin: 0 auto 1.5rem;
-            color: var(--muted);
-        }
+section{
+display:none;
+}
 
-        nav {
-            background-color: var(--panel);
-            border: 2px solid var(--accent);
-            border-radius: 16px;
-            padding: 0.85rem 1rem;
-            box-shadow: 0 8px 20px var(--shadow);
-        }
+section.active{
+display:block;
+}
 
-        nav ul {
-            list-style: none;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 0.5rem;
-        }
+figure{
+margin:20px 0;
+}
 
-        nav li {
-            display: inline-flex;
-            align-items: center;
-        }
+img{
+width:500px;
+max-width:100%;
+border-radius:8px;
+}
 
-        nav li:not(:last-child)::after {
-            content: " ⛰ ";
-            margin-left: 0.5rem;
-            color: var(--accent);
-        }
+figcaption{
+font-weight:bold;
+margin-top:8px;
+}
 
-        nav a {
-            display: inline-block;
-            padding: 0.45rem 0.75rem;
-            border-radius: 8px;
-            font-weight: bold;
-        }
+.prompt{
+font-style:italic;
+font-size:0.9em;
+}
 
-        nav a.active,
-        nav a:hover,
-        nav a:focus {
-            background-color: var(--accent);
-            color: #16271f;
-            text-decoration: none;
-        }
+table{
+border-collapse:collapse;
+margin-top:10px;
+}
 
-        main {
-            padding: 1rem 0 2rem;
-        }
+td,th{
+border:1px solid #ccc;
+padding:8px;
+}
 
-        section {
-            display: none;
-            background-color: rgba(23, 58, 44, 0.96);
-            border: 1px solid rgba(216, 178, 76, 0.35);
-            border-radius: 18px;
-            padding: 1.75rem;
-            margin-bottom: 2rem;
-            box-shadow: 0 10px 24px var(--shadow);
-        }
+footer{
+background:#2c4a44;
+padding:20px;
+text-align:center;
+}
 
-        section.active-section {
-            display: block;
-        }
+</style>
 
-        h2 {
-            color: #fff1bf;
-            border-bottom: 3px solid var(--accent);
-            padding-bottom: 0.35rem;
-            margin-top: 0;
-        }
+<script>
 
-        .content-grid {
-            display: grid;
-            grid-template-columns: 2fr 1fr;
-            gap: 1.5rem;
-            align-items: start;
-        }
+function showSection(id){
 
-        .card,
-        table,
-        form,
-        figure {
-            background-color: var(--panel-light);
-            border-radius: 14px;
-            padding: 1rem;
-            box-shadow: 0 6px 14px var(--shadow);
-        }
+let sections=document.querySelectorAll("section")
 
-        figure {
-            margin: 0;
-        }
+sections.forEach(section=>{
+section.classList.remove("active")
+})
 
-        img {
-            width: 100%;
-            height: auto;
-            border-radius: 12px;
-            display: block;
-        }
+document.getElementById(id).classList.add("active")
 
-        figcaption {
-            margin-top: 0.75rem;
-            font-weight: bold;
-            color: #fff4cf;
-        }
+}
 
-        .prompt-note {
-            font-style: italic;
-            color: #f2e8c6;
-            margin-top: 0.5rem;
-        }
+window.onload=function(){
+showSection("what")
+}
 
-        ul, ol {
-            padding-left: 1.5rem;
-        }
+</script>
 
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            overflow: hidden;
-        }
-
-        th, td {
-            border: 1px solid rgba(255,255,255,0.15);
-            padding: 0.75rem;
-            text-align: left;
-        }
-
-        th {
-            background-color: #2a5b46;
-            color: #fff4cf;
-        }
-
-        form label {
-            display: block;
-            font-weight: bold;
-            margin-top: 0.8rem;
-        }
-
-        input,
-        select,
-        textarea,
-        button {
-            width: 100%;
-            padding: 0.7rem;
-            margin-top: 0.3rem;
-            border: none;
-            border-radius: 8px;
-            font: inherit;
-        }
-
-        input,
-        select,
-        textarea {
-            background-color: #f4f0e6;
-            color: #1d2b24;
-        }
-
-        button {
-            background-color: var(--accent);
-            color: #16271f;
-            font-weight: bold;
-            cursor: pointer;
-            margin-top: 1rem;
-        }
-
-        button:hover,
-        button:focus {
-            background-color: #f2d27d;
-        }
-
-        code {
-            background: rgba(0,0,0,0.2);
-            padding: 0.15rem 0.35rem;
-            border-radius: 4px;
-        }
-
-        footer {
-            padding: 0 0 2.5rem;
-            text-align: center;
-            color: var(--muted);
-        }
-
-        .validation-links a {
-            display: inline-block;
-            margin: 0.35rem;
-            padding: 0.55rem 0.9rem;
-            background-color: var(--panel);
-            border: 1px solid var(--accent);
-            border-radius: 8px;
-        }
-
-        @media (max-width: 800px) {
-            .content-grid {
-                grid-template-columns: 1fr;
-            }
-
-            h1 {
-                font-size: 2.2rem;
-            }
-
-            section {
-                padding: 1.1rem;
-            }
-        }
-    </style>
 </head>
+
 <body>
-    <header>
-        <h1>Hiking</h1>
-        <p class="tagline">
-            A single-page hobby site about hiking, with each section working like its own page.
-        </p>
 
-        <nav aria-label="Hobby site navigation">
-            <ul>
-                <li><a href="#what" class="nav-link active" data-section="what">What</a></li>
-                <li><a href="#who" class="nav-link" data-section="who">Who</a></li>
-                <li><a href="#when" class="nav-link" data-section="when">When</a></li>
-                <li><a href="#where" class="nav-link" data-section="where">Where</a></li>
-                <li><a href="#how" class="nav-link" data-section="how">How</a></li>
-                <li><a href="#why" class="nav-link" data-section="why">Why</a></li>
-                <li><a href="#ai-prompts" class="nav-link" data-section="ai-prompts">AI Prompts</a></li>
-            </ul>
-        </nav>
-    </header>
+<header>
 
-    <main>
-        <section id="what" class="active-section">
-            <h2>What: The Hobby of Hiking</h2>
-            <div class="content-grid">
-                <div>
-                    <div class="card">
-                        <p>
-                            Hiking is the activity of walking outdoor trails for exercise, exploration, and enjoyment.
-                            I like hiking because it combines movement, scenery, and a sense of progress. Every trail
-                            feels a little different depending on the terrain, weather, and time of year.
-                        </p>
-                        <p>
-                            Some hikes are short and relaxing, while others are steep and challenging. That variety is
-                            part of what makes the hobby interesting. Hiking can be social, but it can also be a calm,
-                            personal way to reset after a stressful week.
-                        </p>
-                    </div>
+<h1>Hiking</h1>
 
-                    <table>
-                        <caption><strong>Common Types of Hikes</strong></caption>
-                        <thead>
-                            <tr>
-                                <th>Type</th>
-                                <th>Length</th>
-                                <th>Difficulty</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>Nature Walk</td>
-                                <td>1–2 miles</td>
-                                <td>Easy</td>
-                            </tr>
-                            <tr>
-                                <td>Day Hike</td>
-                                <td>3–8 miles</td>
-                                <td>Moderate</td>
-                            </tr>
-                            <tr>
-                                <td>Mountain Trail</td>
-                                <td>5+ miles</td>
-                                <td>Moderate to Hard</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
+<nav>
 
-                <figure>
-                    <img src="images/what-hiking-trail.jpg" alt="A scenic hiking trail through green hills">
-                    <figcaption>One of the best parts of hiking is enjoying views that change with every trail.</figcaption>
-                    <p class="prompt-note">
-                        AI image prompt: “Create a realistic scenic hiking trail through green hills with warm natural
-                        light, trees, and a peaceful outdoor atmosphere.”
-                    </p>
-                </figure>
-            </div>
-        </section>
+<a href="#" onclick="showSection('what')">What ⛰</a>
+<a href="#" onclick="showSection('who')">Who ⛰</a>
+<a href="#" onclick="showSection('when')">When ⛰</a>
+<a href="#" onclick="showSection('where')">Where ⛰</a>
+<a href="#" onclick="showSection('how')">How ⛰</a>
+<a href="#" onclick="showSection('why')">Why ⛰</a>
+<a href="#" onclick="showSection('ai')">AI Prompts</a>
 
-        <section id="who">
-            <h2>Who: Who Enjoys Hiking?</h2>
-            <div class="content-grid">
-                <div>
-                    <div class="card">
-                        <p>
-                            Hiking works for many kinds of people. Beginners can enjoy simple local trails, while more
-                            experienced hikers may choose longer routes with major elevation gain. Families, solo hikers,
-                            photographers, runners, and outdoor clubs all approach the hobby in different ways.
-                        </p>
-                        <p>
-                            For me, hiking is a hobby that balances fitness and curiosity. It gives me a reason to go
-                            outside, notice the landscape around me, and challenge myself without making the experience
-                            feel repetitive.
-                        </p>
-                    </div>
+</nav>
 
-                    <ul class="card">
-                        <li>Beginners looking for light outdoor activity</li>
-                        <li>Students who want a low-cost hobby</li>
-                        <li>Friends or families who enjoy day trips</li>
-                        <li>People interested in photography or nature</li>
-                    </ul>
-                </div>
+</header>
 
-                <figure>
-                    <img src="images/who-hikers.jpg" alt="A small group of hikers standing on an overlook">
-                    <figcaption>Hiking can be enjoyed alone or with a group.</figcaption>
-                    <p class="prompt-note">
-                        AI image prompt: “Generate a realistic group of hikers standing at a scenic overlook, wearing
-                        outdoor clothing and backpacks, with mountains in the distance.”
-                    </p>
-                </figure>
-            </div>
-        </section>
+<main>
 
-        <section id="when">
-            <h2>When: Best Times to Go Hiking</h2>
-            <div class="content-grid">
-                <div>
-                    <div class="card">
-                        <p>
-                            The best time to hike depends on both the trail and the season. Spring and fall are usually
-                            my favorite times because the temperatures are more comfortable and the scenery is especially
-                            colorful. Summer hikes can still be great, but early morning is usually better than midday.
-                        </p>
-                    </div>
+<section id="what">
 
-                    <table>
-                        <caption><strong>Seasonal Hiking Guide</strong></caption>
-                        <thead>
-                            <tr>
-                                <th>Season</th>
-                                <th>Benefits</th>
-                                <th>Things to Watch</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>Spring</td>
-                                <td>Cool weather, flowers, green trails</td>
-                                <td>Mud, sudden rain</td>
-                            </tr>
-                            <tr>
-                                <td>Summer</td>
-                                <td>Longer daylight, vacation time</td>
-                                <td>Heat, bugs, dehydration</td>
-                            </tr>
-                            <tr>
-                                <td>Fall</td>
-                                <td>Colorful leaves, crisp air</td>
-                                <td>Shorter days</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
+<h2>What</h2>
 
-                <figure>
-                    <img src="images/when-fall-trail.jpg" alt="A hiking trail surrounded by autumn leaves">
-                    <figcaption>Fall is one of the most beautiful seasons for hiking.</figcaption>
-                    <p class="prompt-note">
-                        AI image prompt: “Create a realistic autumn hiking trail with orange and red leaves, golden
-                        sunlight, and a peaceful forest path.”
-                    </p>
-                </figure>
-            </div>
-        </section>
+<p>
+Hiking is one of my favorite hobbies because it gets me outside and away from screens for a while. 
+It basically means walking trails in nature. Some trails are short and easy while others can take a few hours and have a lot of hills.
+</p>
 
-        <section id="where">
-            <h2>Where: Great Places to Hike</h2>
-            <div class="content-grid">
-                <div>
-                    <div class="card">
-                        <p>
-                            Hiking can happen almost anywhere: local parks, greenways, nature preserves, state parks,
-                            and mountain trails. Some of the best hikes are not the most famous ones, but the places
-                            that are easy to visit regularly and still offer fresh views.
-                        </p>
-                        <p>
-                            Good hiking locations usually have marked trails, clear parking, and different distance
-                            options. I especially like places with overlooks, waterfalls, or wooded loops because they
-                            make the experience feel rewarding.
-                        </p>
-                    </div>
+<p>
+One of the things I like most about hiking is that every trail feels different. 
+Some trails go through forests, some have mountain views, and some end at waterfalls.
+</p>
 
-                    <ol class="card">
-                        <li>Local nature preserve for short practice hikes</li>
-                        <li>State parks for longer trails and variety</li>
-                        <li>Mountain regions for views and elevation change</li>
-                    </ol>
-                </div>
+<figure>
 
-                <figure>
-                    <img src="images/where-mountain-view.jpg" alt="A mountain trail leading to a wide overlook">
-                    <figcaption>Mountain overlooks make longer hikes feel especially rewarding.</figcaption>
-                    <p class="prompt-note">
-                        AI image prompt: “Make a realistic mountain hiking overlook with a trail in the foreground,
-                        dramatic clouds, and layered blue mountains in the distance.”
-                    </p>
-                </figure>
-            </div>
-        </section>
+<img src="images/hiking1.jpg" alt="Hiking trail">
 
-        <section id="how">
-            <h2>How: How to Get Started</h2>
-            <div class="content-grid">
-                <div>
-                    <div class="card">
-                        <p>
-                            The easiest way to start hiking is to keep it simple. Choose a short trail, wear comfortable
-                            shoes, bring water, and check the weather before leaving. New hikers do not need expensive
-                            gear right away. Consistency matters more than having the “perfect” setup.
-                        </p>
-                    </div>
+<figcaption>Example of a hiking trail</figcaption>
 
-                    <form action="#" method="post">
-                        <fieldset>
-                            <legend><strong>Starter Hiking Checklist</strong></legend>
+<p class="prompt">
+Image prompt: realistic hiking trail through a green forest with sunlight and mountains in the distance.
+</p>
 
-                            <label for="trail">Choose a trail type:</label>
-                            <select id="trail" name="trail">
-                                <option>Easy local loop</option>
-                                <option>Moderate park trail</option>
-                                <option>Long scenic hike</option>
-                            </select>
+</figure>
 
-                            <label for="gear">Most important item to pack:</label>
-                            <input id="gear" name="gear" type="text" placeholder="Water bottle">
+<table>
 
-                            <label for="notes">Personal hiking goal:</label>
-                            <textarea id="notes" name="notes" rows="4" placeholder="Example: Hike twice a month and improve endurance"></textarea>
+<tr>
+<th>Trail Type</th>
+<th>Distance</th>
+</tr>
 
-                            <button type="submit">Plan My First Hike</button>
-                        </fieldset>
-                    </form>
-                </div>
+<tr>
+<td>Easy Trail</td>
+<td>1-3 miles</td>
+</tr>
 
-                <figure>
-                    <img src="images/how-hiking-gear.jpg" alt="Basic hiking gear arranged neatly on a wooden surface">
-                    <figcaption>Good preparation makes hiking safer and more enjoyable.</figcaption>
-                    <p class="prompt-note">
-                        AI image prompt: “Create a realistic flat lay of beginner hiking gear including boots, a water
-                        bottle, a backpack, and a trail map on a wooden surface.”
-                    </p>
-                </figure>
-            </div>
-        </section>
+<tr>
+<td>Moderate Trail</td>
+<td>3-6 miles</td>
+</tr>
 
-        <section id="why">
-            <h2>Why: Why Hiking Matters to Me</h2>
-            <div class="content-grid">
-                <div>
-                    <div class="card">
-                        <p>
-                            I enjoy hiking because it improves both physical and mental well-being. It helps with
-                            endurance, gives me a break from screens, and creates time to think more clearly. Unlike
-                            some hobbies, it does not feel repetitive because every trail and every season changes the
-                            experience.
-                        </p>
-                        <p>
-                            Hiking also creates a strong sense of accomplishment. Even a short hike can feel meaningful
-                            because there is a clear beginning, middle, and destination. That combination of challenge,
-                            scenery, and reflection is why I keep coming back to it.
-                        </p>
-                    </div>
+<tr>
+<td>Difficult Trail</td>
+<td>6+ miles</td>
+</tr>
 
-                    <ul class="card">
-                        <li>It supports fitness in a natural way</li>
-                        <li>It reduces stress and improves focus</li>
-                        <li>It creates memorable experiences outdoors</li>
-                    </ul>
-                </div>
+</table>
 
-                <figure>
-                    <img src="images/why-sunrise-hike.jpg" alt="A hiker watching sunrise from a scenic viewpoint">
-                    <figcaption>Moments like sunrise viewpoints make hiking memorable.</figcaption>
-                    <p class="prompt-note">
-                        AI image prompt: “Generate a realistic sunrise hiking scene with one hiker standing at a scenic
-                        viewpoint, warm light, and a peaceful early morning atmosphere.”
-                    </p>
-                </figure>
-            </div>
-        </section>
+</section>
 
-        <section id="ai-prompts">
-            <h2>AI Prompts</h2>
-            <div class="card">
-                <p><strong>AI Model Used:</strong> ChatGPT</p>
-                <p>
-                    I used AI to help brainstorm structure, write sample content, and suggest CSS/JavaScript for the
-                    single-page layout. I also used AI image prompts for each figure.
-                </p>
 
-                <h3>Prompts Used</h3>
-                <ul>
-                    <li>
-                        “Create a single HTML file for a hobby website with embedded CSS and JavaScript. It should use
-                        header, main, footer, and sections that behave like separate pages.”
-                    </li>
-                    <li>
-                        “Write content for a hobby website about hiking with sections for What, Who, When, Where, How,
-                        and Why.”
-                    </li>
-                    <li>
-                        “Add JavaScript so only one section is visible at a time and the What section appears first.”
-                    </li>
-                    <li>
-                        “Create realistic AI image prompts for each section of a hiking hobby site.”
-                    </li>
-                </ul>
 
-                <p>
-                    I reviewed and edited the final code and wording to fit the assignment requirements.
-                </p>
-            </div>
-        </section>
-    </main>
+<section id="who">
 
-    <footer>
-        <p>
-            Designed by <a href="../yourdesignfirm.com/index.html">Your Design Firm</a>
-        </p>
+<h2>Who</h2>
 
-        <div class="validation-links">
-            <a href="https://validator.w3.org/check?uri=referer">Validate HTML</a>
-            <a href="https://jigsaw.w3.org/css-validator/check/referer">Validate CSS</a>
-            <a href="https://wave.webaim.org/report#/https://webpages.charlotte.edu/UNCCID/itis3135/hobby/">Check Accessibility</a>
-        </div>
-    </footer>
+<p>
+Anyone can enjoy hiking. You do not have to be an expert to start. 
+Some people hike for exercise while others do it to relax or enjoy the scenery.
+</p>
 
-    <script>
-        const navLinks = document.querySelectorAll('.nav-link');
-        const sections = document.querySelectorAll('main section');
+<p>
+I usually hike with friends or family on weekends. It is also something people can do alone if they want a quiet break from busy schedules.
+</p>
 
-        function showSection(sectionId) {
-            sections.forEach(section => {
-                section.classList.remove('active-section');
-            });
+<figure>
 
-            navLinks.forEach(link => {
-                link.classList.remove('active');
-            });
+<img src="images/hiking2.jpg" alt="Group hiking">
 
-            const targetSection = document.getElementById(sectionId);
-            const activeLink = document.querySelector(`[data-section="${sectionId}"]`);
+<figcaption>People hiking together</figcaption>
 
-            if (targetSection) {
-                targetSection.classList.add('active-section');
-            }
+<p class="prompt">
+Image prompt: group of hikers walking on a mountain trail wearing backpacks during daylight.
+</p>
 
-            if (activeLink) {
-                activeLink.classList.add('active');
-            }
-        }
+</figure>
 
-        navLinks.forEach(link => {
-            link.addEventListener('click', function (event) {
-                event.preventDefault();
-                const sectionId = this.getAttribute('data-section');
-                showSection(sectionId);
-                history.replaceState(null, '', `#${sectionId}`);
-            });
-        });
+<ul>
+<li>Students looking for outdoor activities</li>
+<li>Families spending time together</li>
+<li>Friends exploring new trails</li>
+</ul>
 
-        window.addEventListener('load', () => {
-            const hash = window.location.hash.replace('#', '');
-            const validIds = ['what', 'who', 'when', 'where', 'how', 'why', 'ai-prompts'];
+</section>
 
-            if (validIds.includes(hash)) {
-                showSection(hash);
-            } else {
-                showSection('what');
-            }
-        });
-    </script>
+
+
+<section id="when">
+
+<h2>When</h2>
+
+<p>
+Hiking can be done during any season, but spring and fall are usually the most comfortable. 
+The weather is cooler and the scenery looks really nice during those months.
+</p>
+
+<p>
+Summer hikes are still popular but starting earlier in the day helps avoid the heat.
+</p>
+
+<figure>
+
+<img src="images/hiking3.jpg" alt="Fall hiking">
+
+<figcaption>Fall hiking scenery</figcaption>
+
+<p class="prompt">
+Image prompt: autumn hiking trail with orange and red leaves and sunlight through the trees.
+</p>
+
+</figure>
+
+<ul>
+<li>Spring – cooler weather and blooming plants</li>
+<li>Summer – long daylight hours</li>
+<li>Fall – colorful leaves and great views</li>
+</ul>
+
+</section>
+
+
+
+<section id="where">
+
+<h2>Where</h2>
+
+<p>
+Hiking trails can be found almost everywhere. Many local parks have small trails, while national parks and mountain areas have longer and more challenging ones.
+</p>
+
+<p>
+Some of the best trails include scenic overlooks or waterfalls which make the hike even more rewarding.
+</p>
+
+<figure>
+
+<img src="images/hiking4.jpg" alt="Mountain view">
+
+<figcaption>Mountain view from a hiking trail</figcaption>
+
+<p class="prompt">
+Image prompt: scenic mountain overlook view from a hiking trail with clouds and large valley.
+</p>
+
+</figure>
+
+<ul>
+<li>National Parks</li>
+<li>State Parks</li>
+<li>Local nature preserves</li>
+</ul>
+
+</section>
+
+
+
+<section id="how">
+
+<h2>How</h2>
+
+<p>
+Getting started with hiking is simple. Comfortable shoes, water, and a safe trail are usually enough for beginners.
+</p>
+
+<p>
+As people hike more often they may bring extra gear like backpacks, maps, or hiking apps.
+</p>
+
+<figure>
+
+<img src="images/hiking5.jpg" alt="Hiking gear">
+
+<figcaption>Basic hiking equipment</figcaption>
+
+<p class="prompt">
+Image prompt: hiking gear including boots, backpack, water bottle, and trail map.
+</p>
+
+</figure>
+
+<form>
+
+<label>Name</label>
+<input type="text">
+
+<label>Favorite trail type</label>
+<select>
+<option>Forest</option>
+<option>Mountain</option>
+<option>Waterfall</option>
+</select>
+
+<input type="submit" value="Submit">
+
+</form>
+
+</section>
+
+
+
+<section id="why">
+
+<h2>Why</h2>
+
+<p>
+One of the biggest reasons I enjoy hiking is that it helps clear my mind. Spending time outdoors can be very relaxing and helps reduce stress.
+</p>
+
+<p>
+It is also a good way to stay active without feeling like a normal workout.
+</p>
+
+<figure>
+
+<img src="images/hiking6.jpg" alt="Sunrise hike">
+
+<figcaption>Sunrise view during a hike</figcaption>
+
+<p class="prompt">
+Image prompt: sunrise mountain landscape with a hiker standing on a cliff looking over the valley.
+</p>
+
+</figure>
+
+<ul>
+<li>Good physical activity</li>
+<li>Relaxing outdoor environment</li>
+<li>Beautiful scenery</li>
+</ul>
+
+</section>
+
+
+
+<section id="ai">
+
+<h2>AI Prompts</h2>
+
+<p>
+The image descriptions used to create the pictures are written in italics under each image on the page.
+</p>
+
+</section>
+
+</main>
+
+<footer>
+
+<p>Designed by Kashish Swaroop</p>
+
+<p>
+<a href="https://validator.w3.org/">HTML Validation</a> |
+<a href="https://jigsaw.w3.org/css-validator/">CSS Validation</a> |
+<a href="https://wave.webaim.org/">Accessibility Check</a>
+</p>
+
+</footer>
+
 </body>
 </html>
