@@ -7,96 +7,102 @@
 </head>
 
 <body>
-    <header></header>
+<header></header>
 
-    <main>
-        <h2>Introduction Form</h2>
-        <h3>Please submit the form below.</h3>
+<main>
+    <h2>Introduction Form</h2>
+    <h3>Please submit the form below.</h3>
 
-        <form id="form">
+    <form id="form">
 
-            <!-- Basic Info -->
-            <label>First Name:</label>
-            <input type="text" name="firstName" placeholder="First Name" value="YourName" required>
+        <!-- Basic Info -->
+        <label>First Name:</label>
+        <input type="text" name="firstName" value="YourName" required>
 
-            <label>Middle Name (Optional):</label>
-            <input type="text" name="middleName" placeholder="Middle Name">
+        <label>Middle Name (Optional):</label>
+        <input type="text" name="middleName">
 
-            <label>Nickname (Optional):</label>
-            <input type="text" name="nickname" placeholder="Nickname">
+        <label>Nickname (Optional):</label>
+        <input type="text" name="nickname">
 
-            <label>Last Name:</label>
-            <input type="text" name="lastName" placeholder="Last Name" required>
+        <label>Last Name:</label>
+        <input type="text" name="lastName" required>
 
-            <label>Acknowledgment Date:</label>
-            <input type="date" name="date" required>
+        <label>Date:</label>
+        <input type="date" name="date" required>
 
-            <label>Mascot Adjective:</label>
-            <input type="text" name="mascotAdj" placeholder="Mascot Adjective" required>
+        <label>Mascot Adjective:</label>
+        <input type="text" name="mascotAdj" required>
 
-            <label>Mascot Animal:</label>
-            <input type="text" name="mascotAnimal" placeholder="Mascot Animal" required>
+        <label>Mascot Animal:</label>
+        <input type="text" name="mascotAnimal" required>
 
-            <label>Divider:</label>
-            <input type="text" name="divider" placeholder="Divider (~, |, etc)" value="~" required>
+        <label>Divider:</label>
+        <input type="text" name="divider" value="~" required>
 
-            <!-- Image -->
-            <label>Upload Image:</label>
-            <input type="file" name="image" accept="image/*">
+        <!-- Image -->
+        <label>Upload Image:</label>
+        <input type="file" name="image" accept="image/*">
 
-            <label>Image Caption:</label>
-            <input type="text" name="imageCaption" placeholder="Image Caption" required>
+        <label>Image Caption:</label>
+        <input type="text" name="imageCaption" required>
 
-            <!-- Statements -->
-            <label>Personal Statement:</label>
-            <textarea name="personalStatement" placeholder="Personal Statement" required></textarea>
+        <!-- Statements -->
+        <label>Personal Statement:</label>
+        <textarea name="personalStatement" required></textarea>
 
-            <label>Personal Background:</label>
-            <textarea name="personalBg"></textarea>
+        <label>Personal Background:</label>
+        <textarea name="personalBg"></textarea>
 
-            <label>Academic Background:</label>
-            <textarea name="academicBg"></textarea>
+        <label>Academic Background:</label>
+        <textarea name="academicBg"></textarea>
 
-            <label>Professional Background:</label>
-            <textarea name="professionalBg"></textarea>
+        <label>Professional Background:</label>
+        <textarea name="professionalBg"></textarea>
 
-            <label>Subject Background:</label>
-            <textarea name="subjectBg"></textarea>
+        <label>Subject Background:</label>
+        <textarea name="subjectBg"></textarea>
 
-            <!-- Quote -->
-            <label>Quote:</label>
-            <input type="text" name="quote" placeholder="Quote" required>
+        <!-- Quote -->
+        <label>Quote:</label>
+        <input type="text" name="quote" required>
 
-            <label>Quote Author:</label>
-            <input type="text" name="quoteAuthor" placeholder="Quote Author" required>
+        <label>Quote Author:</label>
+        <input type="text" name="quoteAuthor" required>
 
-            <!-- Optional -->
-            <label>Funny Thing (Optional):</label>
-            <textarea name="funny"></textarea>
+        <!-- Optional -->
+        <label>Funny Thing:</label>
+        <textarea name="funny"></textarea>
 
-            <label>Something to Share (Optional):</label>
-            <textarea name="share"></textarea>
+        <label>Something to Share:</label>
+        <textarea name="share"></textarea>
 
-            <!-- Links -->
-            <label>Links:</label>
-            <input type="url" name="link1" placeholder="Link 1">
-            <input type="url" name="link2" placeholder="Link 2">
-            <input type="url" name="link3" placeholder="Link 3">
-            <input type="url" name="link4" placeholder="Link 4">
-            <input type="url" name="link5" placeholder="Link 5">
+        <!-- Links -->
+        <label>Links:</label>
+        <input type="url" name="link1">
+        <input type="url" name="link2">
+        <input type="url" name="link3">
+        <input type="url" name="link4">
+        <input type="url" name="link5">
 
-            <!-- Buttons -->
-            <br><br>
-            <button type="submit">Submit</button>
-            <button type="reset">Reset</button>
-            <button type="button" id="clearBtn">Clear</button>
+        <!-- Courses -->
+        <h3>Courses</h3>
+        <div id="courses"></div>
 
-        </form>
-    </main>
+        <button type="button" id="addCourse">Add Course</button>
 
-    <footer></footer>
+        <br><br>
 
-    <script src="scripts/introduction.js"></script>
+        <!-- Buttons -->
+        <button type="submit">Submit</button>
+        <button type="reset">Reset</button>
+        <button type="button" id="clearBtn">Clear</button>
+
+    </form>
+</main>
+
+<footer></footer>
+
+<script src="scripts/introduction.js"></script>
 </body>
 </html>
- 
