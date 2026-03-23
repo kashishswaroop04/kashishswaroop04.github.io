@@ -15,6 +15,82 @@
 
         <form id="form">
 
+            <!-- Basic Info -->
+            <label>First Name:</label>
+            <input type="text" name="firstName" placeholder="First Name" value="YourName" required>
+
+            <label>Middle Name (Optional):</label>
+            <input type="text" name="middleName" placeholder="Middle Name">
+
+            <label>Nickname (Optional):</label>
+            <input type="text" name="nickname" placeholder="Nickname">
+
+            <label>Last Name:</label>
+            <input type="text" name="lastName" placeholder="Last Name" required>
+
+            <label>Acknowledgment Date:</label>
+            <input type="date" name="date" required>
+
+            <label>Mascot Adjective:</label>
+            <input type="text" name="mascotAdj" placeholder="Mascot Adjective" required>
+
+            <label>Mascot Animal:</label>
+            <input type="text" name="mascotAnimal" placeholder="Mascot Animal" required>
+
+            <label>Divider:</label>
+            <input type="text" name="divider" placeholder="Divider (~, |, etc)" value="~" required>
+
+            <!-- Image -->
+            <label>Upload Image:</label>
+            <input type="file" name="image" accept="image/*">
+
+            <label>Image Caption:</label>
+            <input type="text" name="imageCaption" placeholder="Image Caption" required>
+
+            <!-- Statements -->
+            <label>Personal Statement:</label>
+            <textarea name="personalStatement" placeholder="Personal Statement" required></textarea>
+
+            <label>Personal Background:</label>
+            <textarea name="personalBg"></textarea>
+
+            <label>Academic Background:</label>
+            <textarea name="academicBg"></textarea>
+
+            <label>Professional Background:</label>
+            <textarea name="professionalBg"></textarea>
+
+            <label>Subject Background:</label>
+            <textarea name="subjectBg"></textarea>
+
+            <!-- Quote -->
+            <label>Quote:</label>
+            <input type="text" name="quote" placeholder="Quote" required>
+
+            <label>Quote Author:</label>
+            <input type="text" name="quoteAuthor" placeholder="Quote Author" required>
+
+            <!-- Optional -->
+            <label>Funny Thing (Optional):</label>
+            <textarea name="funny"></textarea>
+
+            <label>Something to Share (Optional):</label>
+            <textarea name="share"></textarea>
+
+            <!-- Links -->
+            <label>Links:</label>
+            <input type="url" name="link1" placeholder="Link 1">
+            <input type="url" name="link2" placeholder="Link 2">
+            <input type="url" name="link3" placeholder="Link 3">
+            <input type="url" name="link4" placeholder="Link 4">
+            <input type="url" name="link5" placeholder="Link 5">
+
+            <!-- Buttons -->
+            <br><br>
+            <button type="submit">Submit</button>
+            <button type="reset">Reset</button>
+            <button type="button" id="clearBtn">Clear</button>
+
         </form>
     </main>
 
