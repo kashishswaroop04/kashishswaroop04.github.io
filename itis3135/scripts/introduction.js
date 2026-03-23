@@ -1,14 +1,11 @@
-// Get form
 const form = document.getElementById("form");
 
-// Prevent default submit (no page refresh)
+// Prevent refresh + generate page
 form.addEventListener("submit", function (e) {
     e.preventDefault();
 
-    // Get all values
     const data = new FormData(form);
 
-    // Build output HTML (THIS is your intro page)
     let output = `
         <h2>Introduction Form</h2>
         <h3>
@@ -17,13 +14,13 @@ form.addEventListener("submit", function (e) {
         </h3>
     `;
 
-    // Image preview
+    // Image
     const file = form.querySelector('input[type="file"]').files[0];
     if (file) {
         const imageURL = URL.createObjectURL(file);
         output += `
             <figure>
-                <img src="${imageURL}" alt="User Image" style="max-width:300px;">
+                <img src="${imageURL}" style="max-width:300px;">
                 <figcaption>${data.get("imageCaption")}</figcaption>
             </figure>
         `;
@@ -38,39 +35,47 @@ form.addEventListener("submit", function (e) {
             <li><strong>Subject Background:</strong> ${data.get("subjectBg")}</li>
             <li><strong>Personal Statement:</strong> ${data.get("personalStatement")}</li>
         </ul>
-
-        <p><strong>Quote:</strong> "${data.get("quote")}" - ${data.get("quoteAuthor")}</p>
     `;
 
-    // Optional fields
-    if (data.get("funny")) {
-        output += `<p><strong>Funny Thing:</strong> ${data.get("funny")}</p>`;
-    }
+    // Courses output
+    output += "<h3>Courses</h3><ul>";
+    document.querySelectorAll(".course").forEach(course => {
+        const inputs = course.querySelectorAll("input");
+        output += `<li>${inputs[0].value} ${inputs[1].value} - ${inputs[2].value} (${inputs[3].value})</li>`;
+    });
+    output += "</ul>";
 
-    if (data.get("share")) {
-        output += `<p><strong>Something to Share:</strong> ${data.get("share")}</p>`;
-    }
+    // Quote
+    output += `<p>"${data.get("quote")}" - ${data.get("quoteAuthor")}</p>`;
 
-    // Links
-    output += `<ul>`;
-    for (let i = 1; i <= 5; i++) {
-        const link = data.get("link" + i);
-        if (link) {
-            output += `<li><a href="${link}" target="_blank">${link}</a></li>`;
-        }
-    }
-    output += `</ul>`;
-
-    // Replace page content
+    // Replace page
     document.querySelector("main").innerHTML = output + `
         <br><a href="intro_form.html">Reset</a>
     `;
 });
 
 
-// Clear button (empties all fields)
+// Clear button
 document.getElementById("clearBtn").addEventListener("click", function () {
     document.querySelectorAll("input, textarea").forEach(el => {
         if (el.type !== "file") el.value = "";
     });
+});
+
+
+// ADD COURSE BUTTON
+document.getElementById("addCourse").addEventListener("click", function () {
+    const div = document.createElement("div");
+    div.className = "course";
+
+    div.innerHTML = `
+        <input placeholder="Dept">
+        <input placeholder="Number">
+        <input placeholder="Name">
+        <input placeholder="Reason">
+        <button type="button" onclick="this.parentElement.remove()">Delete</button>
+        <br><br>
+    `;
+
+    document.getElementById("courses").appendChild(div);
 });
