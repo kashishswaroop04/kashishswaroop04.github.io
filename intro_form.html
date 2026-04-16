@@ -2,103 +2,214 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Introduction Form</title>
     <link rel="stylesheet" href="styles/default.css">
-</head>
+    <style>
+        form {
+            max-width: 900px;
+            margin: 0 auto;
+        }
 
+        .form-row {
+            margin-bottom: 15px;
+        }
+
+        .form-row label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .form-row input,
+        .form-row textarea {
+            width: 100%;
+            max-width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+        }
+
+        textarea {
+            min-height: 80px;
+            resize: vertical;
+        }
+
+        .course-entry {
+            border: 1px solid #ccc;
+            padding: 12px;
+            margin-bottom: 12px;
+            border-radius: 6px;
+        }
+
+        .button-row {
+            margin-top: 20px;
+        }
+
+        .button-row button {
+            margin-right: 10px;
+            margin-bottom: 10px;
+        }
+
+        #result {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        figure img {
+            max-width: 300px;
+            height: auto;
+            display: block;
+        }
+    </style>
+</head>
 <body>
 <header></header>
 
 <main>
-    <h2>Introduction Form</h2>
+    <h2 id="page-title">Introduction Form</h2>
     <h3>Please submit the form below.</h3>
 
-    <form id="form">
+    <form id="introForm">
+        <div class="form-row">
+            <label for="firstName">First Name *</label>
+            <input type="text" id="firstName" name="firstName" value="Kashish" placeholder="Enter first name" required>
+        </div>
 
-        <!-- Basic Info -->
-        <label>First Name:</label>
-        <input type="text" name="firstName" value="YourName" required>
+        <div class="form-row">
+            <label for="middleName">Middle Name / Initial</label>
+            <input type="text" id="middleName" name="middleName" placeholder="Enter middle name or initial">
+        </div>
 
-        <label>Middle Name (Optional):</label>
-        <input type="text" name="middleName">
+        <div class="form-row">
+            <label for="nickname">Nickname / Preferred Name</label>
+            <input type="text" id="nickname" name="nickname" placeholder="Enter nickname or preferred name">
+        </div>
 
-        <label>Nickname (Optional):</label>
-        <input type="text" name="nickname">
+        <div class="form-row">
+            <label for="lastName">Last Name *</label>
+            <input type="text" id="lastName" name="lastName" value="Swaroop" placeholder="Enter last name" required>
+        </div>
 
-        <label>Last Name:</label>
-        <input type="text" name="lastName" required>
+        <div class="form-row">
+            <label for="ackDate">Acknowledgement Date *</label>
+            <input type="date" id="ackDate" name="ackDate" required>
+        </div>
 
-        <label>Date:</label>
-        <input type="date" name="date" required>
+        <div class="form-row">
+            <label for="mascotAdj">Mascot Adjective *</label>
+            <input type="text" id="mascotAdj" name="mascotAdj" value="Smart" placeholder="Enter mascot adjective" required>
+        </div>
 
-        <label>Mascot Adjective:</label>
-        <input type="text" name="mascotAdj" required>
+        <div class="form-row">
+            <label for="mascotAnimal">Mascot Animal *</label>
+            <input type="text" id="mascotAnimal" name="mascotAnimal" value="49er" placeholder="Enter mascot animal" required>
+        </div>
 
-        <label>Mascot Animal:</label>
-        <input type="text" name="mascotAnimal" required>
+        <div class="form-row">
+            <label for="divider">Divider *</label>
+            <input type="text" id="divider" name="divider" value="~" placeholder="Enter divider symbol" required>
+        </div>
 
-        <label>Divider:</label>
-        <input type="text" name="divider" value="~" required>
+        <div class="form-row">
+            <label for="image">Picture Upload</label>
+            <input type="file" id="image" name="image" accept="image/*">
+        </div>
 
-        <!-- Image -->
-        <label>Upload Image:</label>
-        <input type="file" name="image" accept="image/*">
+        <div class="form-row">
+            <label for="imageCaption">Picture Caption *</label>
+            <input type="text" id="imageCaption" name="imageCaption" value="A picture of me" placeholder="Enter image caption" required>
+        </div>
 
-        <label>Image Caption:</label>
-        <input type="text" name="imageCaption" required>
+        <div class="form-row">
+            <label for="personalStatement">Personal Statement *</label>
+            <textarea id="personalStatement" name="personalStatement" placeholder="Enter your personal statement" required>I am a Computer Science student at UNC Charlotte.</textarea>
+        </div>
 
-        <!-- Statements -->
-        <label>Personal Statement:</label>
-        <textarea name="personalStatement" required></textarea>
+        <div class="form-row">
+            <label for="personalBg">Personal Background *</label>
+            <textarea id="personalBg" name="personalBg" placeholder="Enter your personal background" required>I am from India and I now live in Charlotte.</textarea>
+        </div>
 
-        <label>Personal Background:</label>
-        <textarea name="personalBg"></textarea>
+        <div class="form-row">
+            <label for="academicBg">Academic Background *</label>
+            <textarea id="academicBg" name="academicBg" placeholder="Enter your academic background" required>I am studying Computer Science at UNC Charlotte.</textarea>
+        </div>
 
-        <label>Academic Background:</label>
-        <textarea name="academicBg"></textarea>
+        <div class="form-row">
+            <label for="professionalBg">Professional Background *</label>
+            <textarea id="professionalBg" name="professionalBg" placeholder="Enter your professional background" required>I have customer service experience and I am building technical skills through coursework and projects.</textarea>
+        </div>
 
-        <label>Professional Background:</label>
-        <textarea name="professionalBg"></textarea>
+        <div class="form-row">
+            <label for="subjectBg">Subject Background *</label>
+            <textarea id="subjectBg" name="subjectBg" placeholder="Enter your subject background" required>I am interested in web development, programming, and learning more about software development.</textarea>
+        </div>
 
-        <label>Subject Background:</label>
-        <textarea name="subjectBg"></textarea>
+        <div class="form-row">
+            <label for="computer">Primary Computer Platform *</label>
+            <textarea id="computer" name="computer" placeholder="Enter your primary computer platform" required>I use a Windows laptop for schoolwork and coding assignments.</textarea>
+        </div>
 
-        <!-- Quote -->
-        <label>Quote:</label>
-        <input type="text" name="quote" required>
+        <div class="form-row">
+            <label for="quote">Favorite Quote *</label>
+            <input type="text" id="quote" name="quote" value="Believe you can and you're halfway there." placeholder="Enter your favorite quote" required>
+        </div>
 
-        <label>Quote Author:</label>
-        <input type="text" name="quoteAuthor" required>
+        <div class="form-row">
+            <label for="quoteAuthor">Quote Author *</label>
+            <input type="text" id="quoteAuthor" name="quoteAuthor" value="Theodore Roosevelt" placeholder="Enter quote author" required>
+        </div>
 
-        <!-- Optional -->
-        <label>Funny Thing:</label>
-        <textarea name="funny"></textarea>
+        <div class="form-row">
+            <label for="funny">Funny Thing</label>
+            <textarea id="funny" name="funny" placeholder="Enter something funny about yourself"></textarea>
+        </div>
 
-        <label>Something to Share:</label>
-        <textarea name="share"></textarea>
+        <div class="form-row">
+            <label for="share">Something Else I'd Like to Share</label>
+            <textarea id="share" name="share" placeholder="Enter anything else you want to share"></textarea>
+        </div>
 
-        <!-- Links -->
-        <label>Links:</label>
-        <input type="url" name="link1">
-        <input type="url" name="link2">
-        <input type="url" name="link3">
-        <input type="url" name="link4">
-        <input type="url" name="link5">
+        <div class="form-row">
+            <label for="link1">Link 1</label>
+            <input type="url" id="link1" name="link1" value="https://github.com/kashishswaroop04" placeholder="Enter first link">
+        </div>
 
-        <!-- Courses -->
+        <div class="form-row">
+            <label for="link2">Link 2</label>
+            <input type="url" id="link2" name="link2" value="https://kashishswaroop04.github.io/itis3135/" placeholder="Enter second link">
+        </div>
+
+        <div class="form-row">
+            <label for="link3">Link 3</label>
+            <input type="url" id="link3" name="link3" value="https://www.freecodecamp.org/" placeholder="Enter third link">
+        </div>
+
+        <div class="form-row">
+            <label for="link4">Link 4</label>
+            <input type="url" id="link4" name="link4" placeholder="Enter fourth link">
+        </div>
+
+        <div class="form-row">
+            <label for="link5">Link 5</label>
+            <input type="url" id="link5" name="link5" placeholder="Enter fifth link">
+        </div>
+
         <h3>Courses</h3>
         <div id="courses"></div>
 
-        <button type="button" id="addCourse">Add Course</button>
+        <div class="button-row">
+            <button type="button" id="addCourse">Add Course</button>
+        </div>
 
-        <br><br>
-
-        <!-- Buttons -->
-        <button type="submit">Submit</button>
-        <button type="reset">Reset</button>
-        <button type="button" id="clearBtn">Clear</button>
-
+        <div class="button-row">
+            <button type="submit">Submit</button>
+            <button type="reset">Reset</button>
+            <button type="button" id="clearBtn">Clear</button>
+        </div>
     </form>
+
+    <section id="result"></section>
 </main>
 
 <footer></footer>
