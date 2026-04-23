@@ -2,26 +2,69 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Survey</title>
-
-    <!-- Course site stylesheet -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Survey | Kashish Swaroop | ITIS 3135</title>
     <link rel="stylesheet" href="css/default.css">
 </head>
 
 <body>
 
-<!-- Included Header -->
 <div data-include="components/header.html"></div>
 
 <main>
-    <h2>Survey Page</h2>
-    <p>This page will contain the survey project for the FreeCodeCamp Responsive Web Design certification.</p>
+    <h2>Cat Bubba Trail Survey</h2>
+
+    <p>Welcome to the Cat Bubba hiking survey. This form collects opinions about favorite trails, hiking gear, and outdoor habits.</p>
+
+    <form action="#" method="post">
+        <label for="name">Name:</label><br>
+        <input type="text" id="name" name="name" required><br><br>
+
+        <label for="email">Email:</label><br>
+        <input type="email" id="email" name="email" required><br><br>
+
+        <label for="trail-type">Favorite type of trail:</label><br>
+        <select id="trail-type" name="trail-type">
+            <option value="mountain">Mountain</option>
+            <option value="forest">Forest</option>
+            <option value="lake">Lake</option>
+            <option value="easy-walk">Easy Walk</option>
+        </select><br><br>
+
+        <p>What do you usually bring on a hike?</p>
+
+        <input type="checkbox" id="water" name="gear" value="water">
+        <label for="water">Water bottle</label><br>
+
+        <input type="checkbox" id="snacks" name="gear" value="snacks">
+        <label for="snacks">Snacks</label><br>
+
+        <input type="checkbox" id="map" name="gear" value="map">
+        <label for="map">Trail map</label><br>
+
+        <input type="checkbox" id="camera" name="gear" value="camera">
+        <label for="camera">Camera</label><br><br>
+
+        <p>How often do you go hiking?</p>
+
+        <input type="radio" id="weekly" name="frequency" value="weekly">
+        <label for="weekly">Weekly</label><br>
+
+        <input type="radio" id="monthly" name="frequency" value="monthly">
+        <label for="monthly">Monthly</label><br>
+
+        <input type="radio" id="rarely" name="frequency" value="rarely">
+        <label for="rarely">Rarely</label><br><br>
+
+        <label for="comments">Extra comments:</label><br>
+        <textarea id="comments" name="comments" rows="5" cols="40"></textarea><br><br>
+
+        <button type="submit">Submit Survey</button>
+    </form>
 </main>
 
-<!-- Included Footer -->
 <div data-include="components/footer.html"></div>
 
-<!-- HTMLInclude Script -->
 <script src="scripts/include.min.js"></script>
 
 </body>
